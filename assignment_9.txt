@@ -1,0 +1,108 @@
+--Anudeep vattikuti--     --dt:4/15/2014--            --assign-9--   --normalisation 3--
+
+
+
+ --CREATE STATEMENTS FOR ALL THE TABLES SHOWN IN THE ENTITY RELEATIONSHIP DIAGRAM--
+--------------------------------------------------------------------------------------------------------------------------
+
+CREATE TABLE people (
+  pid char(5) not null,
+  first_name text,
+  last_name text,
+  designation text,
+ primary key(pid)
+);
+
+
+CREATE TABLE Engineers (
+  pid char(5) not null,
+  First_Name text,
+  Last_Name text,
+  Highest Degree text,
+  age numeric,
+  Fav Video Game text,
+ primary key(pid)
+);
+
+
+CREATE TABLE flightoperator (
+  pid char(5) not null,
+  first_name text,
+  last_name text,
+  age numeric,
+ preferred drink text,
+ chair prefered text,
+ primary key(pid)
+);
+
+
+CREATE TABLE astronauts (
+  pid char(5) not null,
+  first_name text,
+  last_name text,
+  years_in_flying text,
+  age numeric,
+ primary key(pid)
+);
+
+
+CREATE TABLE suppliers (
+  pid char(4) not null,
+  name text,
+  address text,
+ primary key(pid)
+);
+
+
+CREATE TABLE Spacecraft (
+  spaceid char(4) not null,
+  name text,
+  fuel_type text,
+  tail_number numeric,
+  weight_in_tons numeric,
+  crew_capacity text,
+ primary key(cid)
+);
+
+CREATE TABLE parts (
+  partid char(5) not null,
+  name text,
+  description text,
+ primary key(partid)
+);
+
+
+CREATE TABLE Systems (
+  spaceid char(5) not null,
+  name text,
+  description text, 
+ primary key(spaceid)
+);
+
+
+CREATE TABLE CreW (
+pid char(5) not null,
+spaceid char(5) not null references crafts(cid),
+primary key (pid)
+);
+
+
+CREATE TABLE partscatalog (
+pid char(5) not null,
+partid char(5) not null references part(partid),
+primary key (pid)
+);
+
+
+CREATE TABLE sysspace (
+sysid char(5) not null,
+spaceid char(5) not null references systems(spaceid),
+primary key (cid)
+);
+
+
+CREATE TABLE sysparts (
+partid char(5) not null,
+spaceid char(5) not null references systems(spaceid),
+primary key (partid)
+);
